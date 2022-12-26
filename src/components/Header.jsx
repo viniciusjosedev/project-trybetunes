@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { getUser } from '../services/userAPI';
 import Loading from '../pages/Loading';
+import CompletHeader from './completHeader';
 
 export default class Header extends Component {
   state = {
@@ -13,11 +14,14 @@ export default class Header extends Component {
   }
 
   render() {
-    const { loading, user: { name } = '' } = this.state;
+    const { loading, user = {} } = this.state;
     return (
       <header data-testid="header-component">
-        {loading ? <Loading />
-          : <h1 data-testid="header-user-name">{ `Bem vindo(a) ${name}` }</h1>}
+        {
+          loading
+            ? <Loading />
+            : <CompletHeader user={ user } />
+        }
       </header>
     );
   }
