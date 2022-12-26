@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { getUser } from '../services/userAPI';
 import Loading from '../pages/Loading';
-import CompletHeader from './completHeader';
+import CompletHeader from './CompletHeader';
 
 export default class Header extends Component {
   state = {
