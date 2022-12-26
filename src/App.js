@@ -8,16 +8,32 @@ import Profile from './pages/Profile';
 import ProfileEdit from './pages/ProfileEdit';
 import Search from './pages/Search';
 import Loading from './pages/Loading';
+import Header from './components/Header';
 
 class App extends React.Component {
   render() {
     return (
       <Switch>
-        <Route exact path="/search"><Search /></Route>
-        <Route exact path="/album/:id"><Album /></Route>
-        <Route exact path="/favorites"><Favorites /></Route>
-        <Route exact path="/profile/edit"><ProfileEdit /></Route>
-        <Route exact path="/profile"><Profile /></Route>
+        <Route exact path="/search">
+          <Header />
+          <Search />
+        </Route>
+        <Route exact path="/album/:id">
+          <Header />
+          <Album />
+        </Route>
+        <Route exact path="/favorites">
+          <Header />
+          <Favorites />
+        </Route>
+        <Route exact path="/profile/edit">
+          <Header />
+          <ProfileEdit />
+        </Route>
+        <Route exact path="/profile">
+          <Header />
+          <Profile />
+        </Route>
         <Route exact path="/loading"><Loading /></Route>
         <Route exact path="/"><Login /></Route>
         <Route exact path="*"><NotFound /></Route>
