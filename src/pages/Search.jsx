@@ -1,9 +1,16 @@
 import { Component } from 'react';
+import searchAlbumsAPI from '../services/searchAlbumsAPI';
+import Loading from './Loading';
+import CompletSearch from './CompletSearch';
+import SearchFilter from './SearchFilter';
 
 export default class Search extends Component {
   state = {
     text: '',
     habilit: true,
+    loading: false,
+    artist: [false],
+    name: '',
   };
 
   attText = (event) => {
@@ -23,25 +30,35 @@ export default class Search extends Component {
     });
   };
 
+  clickButton = async () => {
+    const { text } = this.state;
+    this.setState({
+      text: '',
+    });
+    this.setState({
+      loading: true,
+      name: text,
+    }, () => {
+      searchAlbumsAPI(text).then((resultado) => {
+        this.setState({
+          loading: false,
+          artist: [true, resultado],
+        });
+      });
+    });
+  };
+
   render() {
-    const { text, habilit } = this.state;
+    const { text, habilit, loading, artist, name } = this.state;
+    const dict = { text, habilit };
     return (
       <div data-testid="page-search">
-        <p>Search</p>
-        <input
-          data-testid="search-artist-input"
-          type="text"
-          placeholder="Digite o nome do cantor(a) ou banda"
-          onChange={ this.attText }
-          value={ text }
-        />
-        <button
-          data-testid="search-artist-button"
-          type="submit"
-          disabled={ habilit }
-        >
-          Pesquisar
-        </button>
+        {loading ? <Loading /> : <CompletSearch
+          { ...dict }
+          clickButton={ this.clickButton }
+          attText={ this.attText }
+        />}
+        {artist[0] ? <SearchFilter name={ name } artist={ artist[1] } /> : ''}
       </div>
     );
   }
