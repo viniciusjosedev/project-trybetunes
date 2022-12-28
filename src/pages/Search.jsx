@@ -35,6 +35,7 @@ export default class Search extends Component {
     this.setState({
       text: '',
     });
+    // localStorage.setItem('info', JSON.stringify({ name: text }));
     this.setState({
       loading: true,
       name: text,
@@ -58,7 +59,10 @@ export default class Search extends Component {
           clickButton={ this.clickButton }
           attText={ this.attText }
         />}
-        {artist[0] ? <SearchFilter name={ name } artist={ artist[1] } /> : ''}
+        {artist[0] ? <SearchFilter
+          name={ name }
+          artist={ artist[1] }
+        /> : ''}
       </div>
     );
   }

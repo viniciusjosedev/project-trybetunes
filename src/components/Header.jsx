@@ -19,7 +19,7 @@ export default class Header extends Component {
       <header data-testid="header-component">
         {
           loading
-            ? <Loading />
+            ? <h1>Carregando...</h1>
             : <CompletHeader user={ user } />
         }
       </header>
