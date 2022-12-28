@@ -22,12 +22,13 @@ export default class MusicCard extends Component {
   };
 
   render() {
-    const { songs } = this.props;
+    const { songs, songsFavorites } = this.props;
     const { loading, checked } = this.state;
     return (
       <div>
         {loading ? <Loading /> : <CompletMusicCard
           songs={ songs }
+          songsFavorites={ songsFavorites }
           clickCheckbox={ this.clickCheckbox }
           checked={ checked }
         />}
@@ -38,8 +39,10 @@ export default class MusicCard extends Component {
 
 MusicCard.propTypes = {
   songs: PropTypes.objectOf(PropTypes.objectOf),
+  songsFavorites: PropTypes.arrayOf(PropTypes.arrayOf),
 };
 
 MusicCard.defaultProps = {
   songs: [],
+  songsFavorites: [],
 };
