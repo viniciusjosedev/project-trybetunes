@@ -1,6 +1,5 @@
 import { Component } from 'react';
 import { getUser } from '../services/userAPI';
-import Loading from '../pages/Loading';
 import CompletHeader from './CompletHeader';
 
 export default class Header extends Component {
@@ -19,7 +18,7 @@ export default class Header extends Component {
       <header data-testid="header-component">
         {
           loading
-            ? <Loading />
+            ? <h1>Carregando</h1>
             : <CompletHeader user={ user } />
         }
       </header>
