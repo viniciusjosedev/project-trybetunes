@@ -31,7 +31,7 @@ export default class Album extends Component {
           {songs.length > 0 ? `${songs[0].collectionName}` : ''}
         </h2>
         <div>
-          {loading ? null : songsNovos.map((elemento) => (
+          {loading ? '' : songsNovos.map((elemento) => (
             <MusicCard key={ elemento.trackId } songs={ elemento } />
           ))}
         </div>

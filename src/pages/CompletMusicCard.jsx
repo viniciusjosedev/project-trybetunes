@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 export default class CompletMusicCard extends Component {
   render() {
     const { songs: { trackName,
-      previewUrl, trackId }, songs,
-    clickCheckbox, checked } = this.props;
+      previewUrl, trackId }, songs, clickCheckbox, checked } = this.props;
     return (
       <>
         <p>{trackName}</p>
