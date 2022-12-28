@@ -7,7 +7,7 @@ export default class Loading extends Component {
   };
 
   componentDidMount() {
-    const time = 2500;
+    const time = 1500;
     setTimeout(() => {
       this.setState({
         redirect: true,
