@@ -5,14 +5,16 @@ export default class CompletMusicCard extends Component {
   render() {
     const { songs: { trackName,
       previewUrl, trackId }, songs, clickCheckbox, checked, songsFavorites } = this.props;
-    // const { checkedSaved } = this.state;
-    let saved;
-    if (songsFavorites.length > 0) {
-      const filtro = songsFavorites.some((e) => e[0].trackId === trackId);
+    let saved = false;
+    const verific = songsFavorites[1] ? songsFavorites[1] : songsFavorites[0];
+    console.log(songsFavorites[0], songsFavorites[1]);
+    if (verific.length > 0) {
+      const filtro = verific.some((e) => e[0].trackId === trackId);
       if (filtro) {
         saved = true;
       }
     }
+    console.log(saved);
     return (
       <>
         <p>{trackName}</p>
@@ -23,7 +25,7 @@ export default class CompletMusicCard extends Component {
             type="checkbox"
             id="favorita"
             checked={ saved || checked }
-            onChange={ (event) => clickCheckbox(songs, event) }
+            onChange={ (event) => clickCheckbox(songs, event, saved || checked) }
           />
         </label>
         <br />

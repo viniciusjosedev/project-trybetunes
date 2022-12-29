@@ -1,34 +1,53 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import { addSong } from '../services/favoriteSongsAPI';
-import Loading from './Loading';
+import { addSong, removeSong } from '../services/favoriteSongsAPI';
+// import Loading from './Loading';
 import CompletMusicCard from './CompletMusicCard';
 
 export default class MusicCard extends Component {
   state = {
     loading: false,
     checked: false,
+    songsFavorites2: undefined,
   };
 
-  clickCheckbox = async (songs, event) => {
+  clickCheckbox = async (songs, event, checked) => {
     this.setState({
       loading: true,
     });
-    await addSong(songs);
-    this.setState({
-      loading: false,
-      checked: event.target.checked,
-    });
+
+    if (checked === true) {
+      // console.log(true);
+      removeSong(songs).then(() => {
+        const { songsFavorites } = this.props;
+        console.log('removeSong');
+        this.setState({
+          loading: false,
+          checked: event.target.checked,
+          songsFavorites2: songsFavorites.filter((e) => e[0].trackId !== songs.trackId),
+        });
+      });
+    } else {
+      addSong(songs).then(() => {
+        console.log('addSong');
+        const checado = event.target.checked;
+        this.setState({
+          loading: false,
+          checked: checado,
+        });
+      });
+    }
   };
 
   render() {
     const { songs, songsFavorites } = this.props;
-    const { loading, checked } = this.state;
+    // console.log(songsFavorites);
+    const { loading, checked, songsFavorites2 } = this.state;
     return (
       <div>
-        {loading ? <Loading /> : <CompletMusicCard
+        {loading ? <h1>Carregando...</h1> : <CompletMusicCard
           songs={ songs }
-          songsFavorites={ songsFavorites }
+          songsFavorites={ [songsFavorites, songsFavorites2] }
           clickCheckbox={ this.clickCheckbox }
           checked={ checked }
         />}
