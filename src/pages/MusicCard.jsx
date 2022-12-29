@@ -17,10 +17,14 @@ export default class MusicCard extends Component {
     });
 
     if (checked === true) {
-      // console.log(true);
+      // console.log(componentFavorite);
       removeSong(songs).then(() => {
+        const { componentFavorite, funcAtt } = this.props;
+        if (componentFavorite) {
+          funcAtt();
+        }
         const { songsFavorites } = this.props;
-        console.log('removeSong');
+        // console.log('removeSong');
         this.setState({
           loading: false,
           checked: event.target.checked,
@@ -29,7 +33,7 @@ export default class MusicCard extends Component {
       });
     } else {
       addSong(songs).then(() => {
-        console.log('addSong');
+        // console.log('addSong');
         const checado = event.target.checked;
         this.setState({
           loading: false,
@@ -41,7 +45,7 @@ export default class MusicCard extends Component {
 
   render() {
     const { songs, songsFavorites } = this.props;
-    // console.log(songsFavorites);
+    // console.log(songsFavorites[0]);
     const { loading, checked, songsFavorites2 } = this.state;
     return (
       <div>
@@ -59,9 +63,13 @@ export default class MusicCard extends Component {
 MusicCard.propTypes = {
   songs: PropTypes.objectOf(PropTypes.objectOf),
   songsFavorites: PropTypes.arrayOf(PropTypes.arrayOf),
+  componentFavorite: PropTypes.bool,
+  funcAtt: PropTypes.func,
 };
 
 MusicCard.defaultProps = {
   songs: [],
   songsFavorites: [],
+  componentFavorite: false,
+  funcAtt: () => {},
 };

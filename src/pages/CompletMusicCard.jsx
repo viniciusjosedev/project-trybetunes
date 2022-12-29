@@ -7,14 +7,14 @@ export default class CompletMusicCard extends Component {
       previewUrl, trackId }, songs, clickCheckbox, checked, songsFavorites } = this.props;
     let saved = false;
     const verific = songsFavorites[1] ? songsFavorites[1] : songsFavorites[0];
-    console.log(songsFavorites[0], songsFavorites[1]);
+    // console.log(songsFavorites[0], songsFavorites[1]);
     if (verific.length > 0) {
       const filtro = verific.some((e) => e[0].trackId === trackId);
       if (filtro) {
         saved = true;
       }
     }
-    console.log(saved);
+    // console.log(saved);
     return (
       <>
         <p>{trackName}</p>
