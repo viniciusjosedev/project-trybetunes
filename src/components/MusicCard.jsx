@@ -28,6 +28,7 @@ export default class MusicCard extends Component {
   att = ({ target }) => {
     // console.log(target.checked);
     // console.log(name);
+    const { forceAtt } = this.props;
     this.setState({
       loading: true,
       checked: target.checked,
@@ -36,6 +37,7 @@ export default class MusicCard extends Component {
         await addSong(JSON.parse(target.name));
       } else {
         await removeSong(JSON.parse(target.name));
+        if (forceAtt) forceAtt();
       } this.setState({
         loading: false,
       });
@@ -76,4 +78,9 @@ export default class MusicCard extends Component {
 
 MusicCard.propTypes = {
   trackInfo: PropTypes.objectOf(PropTypes.objectOf).isRequired,
+  forceAtt: PropTypes.func,
+};
+
+MusicCard.defaultProps = {
+  forceAtt: undefined,
 };
