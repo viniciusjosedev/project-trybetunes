@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import { addSong } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 
 export default class MusicCard extends Component {
   state = {
@@ -8,17 +8,36 @@ export default class MusicCard extends Component {
     checked: false,
   };
 
+  async componentDidMount() {
+    const { trackInfo } = this.props;
+    this.setState({
+      loading: true,
+    });
+    const getSongs = await getFavoriteSongs();
+    console.log(getSongs);
+    if (getSongs.some((elemento) => elemento.trackId === trackInfo.trackId)) {
+      this.setState({
+        checked: true,
+      });
+    }
+    this.setState({
+      loading: false,
+    });
+  }
+
   att = ({ target }) => {
     // console.log(target.checked);
     // console.log(name);
     this.setState({
       loading: true,
       checked: target.checked,
-    }, () => {
-      addSong(JSON.parse(target.name)).then(() => {
-        this.setState({
-          loading: false,
-        });
+    }, async () => {
+      if (target.checked) {
+        await addSong(JSON.parse(target.name));
+      } else {
+        await removeSong(JSON.parse(target.name));
+      } this.setState({
+        loading: false,
       });
     });
     // console.log(saved);
