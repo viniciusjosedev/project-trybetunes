@@ -12,7 +12,7 @@ export default class Album extends Component {
   async componentDidMount() {
     const { match: { params } } = this.props;
     const albumInfo = await getMusics(params.id);
-    console.log(albumInfo);
+    // console.log(albumInfo);
     this.setState({
       albumInfo: albumInfo[0],
       trackInfo: albumInfo.slice(1, albumInfo.length),
@@ -28,10 +28,9 @@ export default class Album extends Component {
         <h1 data-testid="artist-name">{albumInfo ? albumInfo.artistName : ''}</h1>
         <h1 data-testid="album-name">{albumInfo ? albumInfo.collectionName : ''}</h1>
         {trackInfo ? trackInfo.map((elemento) => (
-          <MusicCard key={ elemento.collectionId } trackInfo={ elemento } />
+          <MusicCard key={ elemento.trackId } trackInfo={ elemento } />
         )) : ''}
       </main>
-
     );
   }
 }
