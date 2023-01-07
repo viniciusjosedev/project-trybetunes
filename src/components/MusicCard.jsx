@@ -14,7 +14,7 @@ export default class MusicCard extends Component {
       loading: true,
     });
     const getSongs = await getFavoriteSongs();
-    console.log(getSongs);
+    // console.log(getSongs);
     if (getSongs.some((elemento) => elemento.trackId === trackInfo.trackId)) {
       this.setState({
         checked: true,

@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, CardTitle } from 'reactstrap';
 import { Redirect } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
-// import styles from '../style/Login.module.css';
+import styles from '../style/Login.module.css';
 
 export default class Login extends Component {
   state = {

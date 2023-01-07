@@ -18,7 +18,7 @@ export default class Search extends Component {
       loading: true,
     });
     searchAlbumsAPI(text).then((user) => {
-      console.log(user);
+      // console.log(user);
       this.setState({
         user,
         loading: false,

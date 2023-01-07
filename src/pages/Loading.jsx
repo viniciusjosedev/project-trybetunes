@@ -17,7 +17,7 @@ export default class Loading extends Component {
 
   render() {
     const { loading } = this.state;
-    console.log(loading);
+    // console.log(loading);
     return (
       <>
         <h1>Carregando...</h1>
