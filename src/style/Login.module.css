@@ -1,1 +1,105 @@
-/* style-lint: pass */
+/* Login.css */
+
+* {
+	margin: 0px;
+}
+
+/* body {
+	background-color: blue;
+} */
+
+@media screen and (min-width: 1000px) {
+	#main {
+		position: absolute;
+		width: 100%;
+		height: 100vh;
+		left: 0px;
+		top: 0px;
+		/* background-color: blueviolet; */
+		background: url('images/038\ Star\ Wine.png');
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		background-repeat: no-repeat;
+	}
+	
+	#div {
+		position: absolute;
+		width: 50.26%;
+		height: 54.54%;
+		/* left: 478px;
+		top: 245px; */
+		background: #ffffff;
+		border-radius: 50px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.5);
+	}
+	
+	#img {
+		margin-left: -80%;
+		margin-top: -8%;
+		margin-bottom: -3%;
+		width: 15%;
+		height: 27%;
+	}
+	
+	.h1-acesso {
+		/* position: absolute; */
+		width: 568px;
+		height: 129px;
+		/* left: 676px;
+		top: 333px; */
+		font-family: 'Inter';
+		font-style: normal;
+		font-weight: 700;
+		font-size: 70px;
+		line-height: 85px;
+		text-align: center;
+		color: #EE609C;
+	}
+	
+	#FormLogin {
+		/* position: absolute; */
+		width: 56.89%;
+		height: 14.77%;
+		/* left: 686px;
+		top: 522px; */
+		/* background: url('images/038\ Star\ Wine.png'); */
+		border-radius: 30%;
+		color: #EE609C;
+		font-weight: bolder;
+	}
+	
+	#input-name {
+		/* position: absolute; */
+		/* width: 549px;
+		height: 87px; */
+		/* left: 686px;
+		top: 522px; */
+		background: rgba(255, 124, 204, 0.50);
+		border-radius: 30px;
+		color: #EE609C;
+		font-weight: 700;
+	}
+	
+	#button {
+		/* position: absolute; */
+		width: auto;
+		height: 17.49%;
+		/* left: 864px;
+		top: 640px; */
+		background-color: rgba(255, 124, 204, 0.75);
+		border-radius: 30px;
+		margin-top: -2%;
+		font-family: 'Inter';
+		font-style: normal;
+		font-weight: 700;
+		font-size: 180%;
+	}
+	
+}
+

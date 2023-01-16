@@ -1,9 +1,11 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, CardTitle } from 'reactstrap';
+import { Button, FormGroup } from 'reactstrap';
 import { Redirect } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
 import styles from '../style/Login.module.css';
+// import img from '../style/images/icons8-ellipsis-100.png';
 
 export default class Login extends Component {
   state = {
@@ -43,14 +45,15 @@ export default class Login extends Component {
     const { habilit, text, loading, color } = this.state;
     return (
       <main data-testid="page-login" id={ styles.main }>
-        <CardTitle tag="h1" className={ `${styles['h1-acesso']} ${styles.title}` }>
-          Trybe
-          <span id={ styles.p }>Tunes</span>
-          {/* <Badge id={ styles.badge } color="danger">Tunes</Badge> */}
-        </CardTitle>
+        {/* <CardTitle tag="h1" className={ `${styles['h1-acesso']} ${styles.title}` }>
+          Trybe */}
+        {/* <span id={ styles.p }>Tunes</span> */}
+        {/* <Badge id={ styles.badge } color="danger">Tunes</Badge>
+        </CardTitle> */}
         <div id={ styles.div }>
+          {/* <img src={ img } alt="" id={ styles.img } /> */}
           <h1 className={ styles['h1-acesso'] }>Acesso</h1>
-          {/* <FormGroup id={ styles.FormLogin } floating>
+          <FormGroup id={ styles.FormLogin } floating>
             <input
               className="form-control"
               value={ text }
@@ -58,7 +61,7 @@ export default class Login extends Component {
               data-testid="login-name-input"
               placeholder="Nome"
               type="text"
-              id="input-name"
+              id={ styles['input-name'] }
             />
             <label
               htmlFor="input-name"
@@ -66,8 +69,8 @@ export default class Login extends Component {
             >
               Nome
             </label>
-          </FormGroup> */}
-          <input
+          </FormGroup>
+          {/* <input
             className="form-control"
             value={ text }
             onChange={ this.funcAtt }
@@ -75,7 +78,7 @@ export default class Login extends Component {
             placeholder="Nome"
             type="text"
             id="input-name"
-          />
+          /> */}
           <br />
           <Button
             // color={ !habilit ? 'danger' : 'secondary' }
