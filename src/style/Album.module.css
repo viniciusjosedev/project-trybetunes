@@ -31,13 +31,23 @@
 }
 
 #divTrackInfo {
-	background-color: aqua;
+	/* background-color: aqua; */
+	display: flex;
+	flex-direction: column;
+	margin-left: 5px;
+	margin-right: 5px;
+	/* border-radius: 2px solid rgb(207, 48, 48); */
+	border: 5px solid #DC355F;
+	margin-bottom: 20px;
 }
 
 .h3Album {
 	color: #B566DA;
 	font-weight: bolder;
+	margin-left: 20px;
+	margin-right: 20px;
 }
+
 
 
 
