@@ -1,0 +1,45 @@
+#divMusicCard {
+	background-color: #e065b1b7;
+	margin-bottom: 5px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-left: 10px;
+	margin-right: 10px;
+	border: 5px solid #B565DA;
+	margin-top: 5px;
+	/* border-radius: 2px solid black; */
+}
+
+#divMusicCard:hover {
+	background-color: #B565DA;
+}
+
+#h3 {
+	/* background-color: red; */
+	margin-bottom: 20px;
+	margin-left: ;
+}
+
+#div {
+	/* background-color: #B565DA; */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 5px;
+	border-radius: 10px;
+	/* margin-bottom: 20px; */
+	width: 100%;
+	height: 100px;
+	/* border: 2px solid black; */
+
+}
+
+#audio {
+	margin-right: 20px;
+	/* background-color: aqua; */
+	/* margin-bottom: 20px; */
+}
+
+
+

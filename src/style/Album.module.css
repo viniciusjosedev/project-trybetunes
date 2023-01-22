@@ -1,0 +1,54 @@
+#main {
+	background-color: #B666D9;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#divMain {
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 20px;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+
+#img {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	border: 2px solid #E065B0;
+	border-radius: 100px;
+}
+
+#headerAlbum {
+	margin-bottom: 5px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-weight: bolder;
+	color: #DC355F;
+}
+
+#divTrackInfo {
+	/* background-color: aqua; */
+	display: flex;
+	flex-direction: column;
+	margin-left: 5px;
+	margin-right: 5px;
+	/* border-radius: 2px solid rgb(207, 48, 48); */
+	border: 5px solid #DC355F;
+	margin-bottom: 20px;
+}
+
+.h3Album {
+	color: #B566DA;
+	font-weight: bolder;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+
+
+
+

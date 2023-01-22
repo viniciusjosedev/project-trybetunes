@@ -1,6 +1,8 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
+import { FormGroup, Input, Label, Spinner } from 'reactstrap';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
+import style from '../style/MusicCard.module.css';
 
 export default class MusicCard extends Component {
   state = {
@@ -50,27 +52,36 @@ export default class MusicCard extends Component {
     const { loading, checked } = this.state;
     // console.log(trackInfo.previewUrl);
     return (
-      <div>
-        <h3>{!loading ? trackInfo.trackName : 'Carregando...'}</h3>
-        <audio data-testid="audio-component" src={ trackInfo.previewUrl } controls>
-          <track kind="captions" />
-          O seu navegador não suporta o elemento
-          {' '}
-          {' '}
-          <code>audio</code>
-          .
-        </audio>
-        <label htmlFor="checkbox">
-          Favorita
-          <input
-            name={ JSON.stringify(trackInfo) }
-            data-testid={ `checkbox-music-${trackInfo.trackId}` }
-            type="checkbox"
-            checked={ checked }
-            onChange={ this.att }
-            id="checkbox"
-          />
-        </label>
+      <div id={ style.divMusicCard }>
+        <h3 id={ style.h3 }>{!loading ? trackInfo.trackName : ''}</h3>
+				{!loading ? null : <Spinner color="danger" />}
+				<div id={ style.div }>
+					<audio data-testid="audio-component" src={ trackInfo.previewUrl } controls id={ style.audio }>
+						<track kind="captions" />
+						O seu navegador não suporta o elemento
+						{' '}
+						{' '}
+						<code>audio</code>
+						.
+					</audio>
+					{/* <label htmlFor="checkbox">
+						Favorita
+						<input
+							name={ JSON.stringify(trackInfo) }
+							data-testid={ `checkbox-music-${trackInfo.trackId}` }
+							type="checkbox"
+							checked={ checked }
+							onChange={ this.att }
+							id="checkbox"
+						/>
+					</label> */}
+					<FormGroup check >
+						<Input type="checkbox" onChange={ this.att } name={ JSON.stringify(trackInfo) } checked={ checked } />
+						<Label check>
+						Favorita
+						</Label>
+					</FormGroup>
+				</div>
       </div>
     );
   }

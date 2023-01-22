@@ -1,5 +1,7 @@
 import { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import { Spinner } from 'reactstrap';
+import style from '../style/Loading.module.css';
 
 export default class Loading extends Component {
   state = {
@@ -7,7 +9,7 @@ export default class Loading extends Component {
   };
 
   componentDidMount() {
-    const number = 1500;
+    const number = 2500;
     setTimeout(() => {
       this.setState({
         loading: false,
@@ -19,10 +21,11 @@ export default class Loading extends Component {
     const { loading } = this.state;
     // console.log(loading);
     return (
-      <>
-        <h1>Carregando...</h1>
+      <main id={ style.main }>
+        {/* <h1 id={ style.h1 }>Carregando...</h1> */}
+        <Spinner color="danger" id={ style.spinner } />
         {!loading ? <Redirect to="/search" /> : null}
-      </>
+      </main>
     );
   }
 }

@@ -19,7 +19,7 @@ class App extends React.Component {
           path="/album/:id"
           render={ (props) => (
             <>
-              <Header />
+              <Header { ...props } />
               <Album { ...props } />
             </>
           ) }
@@ -27,22 +27,44 @@ class App extends React.Component {
         <Route
           exact
           path="/profile/edit"
-        >
-          <Header />
-          <ProfileEdit />
-        </Route>
-        <Route exact path="/profile">
-          <Header />
-          <Profile />
-        </Route>
-        <Route exact path="/favorites">
-          <Header />
-          <Favorites />
-        </Route>
-        <Route exact path="/search">
-          <Header />
-          <Search />
-        </Route>
+          render={ (props) => (
+            <>
+              <Header { ...props } />
+              <ProfileEdit />
+            </>
+          ) }
+        />
+        <Route
+          exact
+          path="/profile"
+          render={ (props) => (
+            <>
+              <Header { ...props } />
+              <Profile />
+            </>
+          ) }
+        />
+        <Route
+          exact
+          path="/favorites"
+          render={ (props) => (
+            <>
+              <Header { ...props } />
+              <Favorites />
+            </>
+          ) }
+        />
+        <Route
+          exact
+          path="/search"
+          render={ (props) => (
+            <>
+              <Header { ...props } />
+              <Search />
+            </>
+          ) }
+        />
+
         <Route exact path="/loading" render={ () => <Loading /> } />
         <Route exact path="/"><Login /></Route>
         <Route exact path="*"><NotFound /></Route>

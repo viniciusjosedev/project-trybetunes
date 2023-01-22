@@ -1,6 +1,8 @@
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { FormGroup, Input, Button, Spinner } from 'reactstrap';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
+import style from '../style/Search.module.css';
 
 export default class Search extends Component {
   state = {
@@ -9,6 +11,7 @@ export default class Search extends Component {
     loading: false,
     user: undefined,
     artist: undefined,
+    clicado: undefined,
   };
 
   clickButton = () => {
@@ -18,11 +21,18 @@ export default class Search extends Component {
       loading: true,
     });
     searchAlbumsAPI(text).then((user) => {
-      // console.log(user);
-      this.setState({
-        user,
-        loading: false,
-      });
+			if (user.length > 0) {
+				this.setState({
+					user,
+					loading: false,
+					clicado: false,
+				})
+			} else {
+				this.setState({
+					loading: false,
+					clicado: true,
+				})
+			}
     });
   };
 
@@ -44,42 +54,55 @@ export default class Search extends Component {
   }
 
   render() {
-    const { text, habilit, loading, user, artist } = this.state;
+    const { text, habilit, loading, user, artist, clicado } = this.state;
+    console.log(user);
     return (
-      <main data-testid="page-search">
-        <h1>Search</h1>
-        {loading ? <h1>Carregando</h1> : <input
-          onChange={ (event) => this.attText(event) }
-          value={ text }
-          type="text"
-          data-testid="search-artist-input"
-        />}
-        <button
-          data-testid="search-artist-button"
-          disabled={ habilit }
-          aria-label="Pesquisar"
-          type="submit"
-          onClick={ this.clickButton }
-          value="pesquisar"
-        >
-          {loading ? '' : 'Pesquisar'}
-        </button>
-        <h1>{user ? `Resultado de álbuns de: ${artist}` : ''}</h1>
-        <div>
-          {user ? user.map((elemento) => (
-            <div key={ elemento.collectionId }>
-              {/* <h1>{elemento.artistName}</h1> */}
-              <h1>{elemento.collectionName}</h1>
-              <Link
-                data-testid={ `link-to-album-${elemento.collectionId}` }
-                key={ elemento.collectionId }
-                to={ `/album/${elemento.collectionId}` }
-              >
-                Album
-              </Link>
-            </div>
-          )) : <h1>Nenhum álbum foi encontrado</h1> }
-        </div>
+      <main data-testid="page-search" id={ style.main }>
+				<div id={ style.divCard }>
+					<h1 id={ style.h1Pesquisa }>Pesquisar</h1>
+					{loading ? <Spinner color="primary">Carregando</Spinner> : <FormGroup id={ style.formgFormTextroupId } onChange={ (event) => this.attText(event) } value={ text }>
+						{/* <Label for="exampleEmail" id={ style.FormText }>
+							Encontre
+						</Label> */}
+						<Input placeholder="Digite uma banda ou um cantor" id={ style.InputFormGroup } valid={ text.length >= 2 ? true : false } />
+						{/* <FormFeedback valid>
+							Sweet! that name is available
+						</FormFeedback> */}
+					</FormGroup>}
+					<Button
+						data-testid="search-artist-button"
+						id={ style.button }
+						disabled={ habilit }
+						aria-label="Pesquisar"
+						type="submit"
+						onClick={ this.clickButton }
+						value="pesquisar"
+					>
+						{loading ? '' : 'Pesquisar'}
+					</Button>
+					<h1>{user ? `Resultado de álbuns de: ${artist}` : ''}</h1>
+					<div id={ style.divMusics }>
+						{user ? user.map((elemento) => (
+							<Link className={ style.link } to={ `/album/${elemento.collectionId}` } key={ elemento.collectionId }>
+								<div id={ style.divMusic }>
+									{/* <h1>{elemento.artistName}</h1> */}
+									<div id={ style.divImg }>
+										<Link to={ `/album/${elemento.collectionId}` }><img src={elemento.artworkUrl100} alt={ elemento.artistName } id={ style.img } /></Link>
+									</div>
+									<Link
+										data-testid={ `link-to-album-${elemento.collectionId}` }
+										className={ style.link }
+										key={ elemento.collectionId }
+										to={ `/album/${elemento.collectionId}` }
+									>
+										<h3>{elemento.collectionName}</h3>
+									</Link>
+								</div>
+							</Link>
+						)) : null }
+						{clicado ? <h1>Nenhum álbum foi encontrado</h1> : null}
+					</div>
+				</div>
       </main>
     );
   }
