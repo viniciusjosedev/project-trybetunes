@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
+import style from '../style/MusicCard.module.css';
 
 export default class MusicCard extends Component {
   state = {
@@ -50,7 +51,7 @@ export default class MusicCard extends Component {
     const { loading, checked } = this.state;
     // console.log(trackInfo.previewUrl);
     return (
-      <div>
+      <div id={ style.divMusicCard }>
         <h3>{!loading ? trackInfo.trackName : 'Carregando...'}</h3>
         <audio data-testid="audio-component" src={ trackInfo.previewUrl } controls>
           <track kind="captions" />

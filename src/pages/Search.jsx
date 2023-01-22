@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { FormGroup, Input, Button, Badge } from 'reactstrap';
+import { FormGroup, Input, Button, Spinner } from 'reactstrap';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import style from '../style/Search.module.css';
 
@@ -60,7 +60,7 @@ export default class Search extends Component {
       <main data-testid="page-search" id={ style.main }>
 				<div id={ style.divCard }>
 					<h1 id={ style.h1Pesquisa }>Pesquisar</h1>
-					{loading ? <h1>Carregando</h1> : <FormGroup id={ style.formgFormTextroupId } onChange={ (event) => this.attText(event) } value={ text }>
+					{loading ? <Spinner color="primary">Carregando</Spinner> : <FormGroup id={ style.formgFormTextroupId } onChange={ (event) => this.attText(event) } value={ text }>
 						{/* <Label for="exampleEmail" id={ style.FormText }>
 							Encontre
 						</Label> */}

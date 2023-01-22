@@ -2,6 +2,7 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 import MusicCard from '../components/MusicCard';
 import getMusics from '../services/musicsAPI';
+import style from '../style/Album.module.css';
 
 export default class Album extends Component {
   state = {
@@ -21,15 +22,20 @@ export default class Album extends Component {
 
   render() {
     const { albumInfo, trackInfo } = this.state;
-    // console.log(trackInfo);
+    console.log(albumInfo);
     return (
-      <main data-testid="page-album">
-        <h1>Album</h1>
-        <h1 data-testid="artist-name">{albumInfo ? albumInfo.artistName : ''}</h1>
-        <h1 data-testid="album-name">{albumInfo ? albumInfo.collectionName : ''}</h1>
-        {trackInfo ? trackInfo.map((elemento) => (
-          <MusicCard key={ elemento.trackId } trackInfo={ elemento } />
-        )) : ''}
+      <main data-testid="page-album" id={ style.main }>
+				<div id={ style.divMain }>
+					<h3 id={ style.headerAlbum }>Album</h3>
+					<img id={ style.img } src={ albumInfo ? albumInfo.artworkUrl100 : null } alt={ albumInfo ? albumInfo.artistId : null } />
+					<h3 className={ style.h3Album } data-testid="artist-name">{albumInfo ? albumInfo.artistName : ''}</h3>
+					<h3 className={ style.h3Album } data-testid="album-name">{albumInfo ? albumInfo.collectionName : ''}</h3>
+					<div id={ style.divTrackInfo }>
+						{trackInfo ? trackInfo.map((elemento) => (
+							<MusicCard key={ elemento.trackId } trackInfo={ elemento } />
+						)) : ''}
+					</div>
+				</div>
       </main>
     );
   }
