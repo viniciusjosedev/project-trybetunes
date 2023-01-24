@@ -61,6 +61,7 @@ export default class ProfileEdit extends Component {
       redirect: true,
     });
     // history.push('/profile');
+		// // history.goBack()
   };
 
   render() {
@@ -92,15 +93,16 @@ export default class ProfileEdit extends Component {
           name="image"
           onChange={ this.attText }
         />}
-        <button
-          data-testid="edit-button-save"
-          disabled={ habilit }
-          onClick={ this.savedButton }
-          type="submit"
-        >
-          Savar
-        </button>
-        {redirect ? <Redirect to="/profile" /> : ''}
+				{loading ? null
+				 : <button
+				 data-testid="edit-button-save"
+				 disabled={ habilit }
+				 onClick={ this.savedButton }
+				 type="submit"
+			 >
+				 Salvar
+			 </button>}
+        {redirect ? <Redirect to="/loading" /> : ''}
       </main>
     );
   }
