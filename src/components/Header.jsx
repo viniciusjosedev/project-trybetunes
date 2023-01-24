@@ -55,7 +55,7 @@ export default class Header extends Component {
   };
 
   render() {
-    const { user: { name } = '', loading, search, favorites, profile } = this.state;
+    const { user: { name } = '', loading, search, favorites, profile, user } = this.state;
     const teste = 'link-to-favorite';
     return (
       <header data-testid="header-component" id={ style.header }>
@@ -65,7 +65,7 @@ export default class Header extends Component {
               ? <div id={ style.divTitle2 }>
                 <h1 id={ style.title }>Trybe<Badge color="danger">Tunes</Badge></h1>
                 <div id={ style.divProfile }>
-                  <img id={ style.img } src={ image } alt="" />
+                  <img id={ style.img } src={ user.image.length > 0 ? user.image : image } alt="" />
                   <h1 id={ style.profile } data-testid="header-user-name">{name}</h1>
                 </div>
               </div>

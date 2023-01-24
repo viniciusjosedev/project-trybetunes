@@ -37,9 +37,11 @@ export default class Profile extends Component {
 						</div>
 						{!loading ? <h3 className={ style.info }><Badge color="danger">Nome:</Badge> <Badge color="secondary">{userInfo.name}</Badge></h3> : null}
 						{!loading ? <h3 className={ style.info }><Badge color="danger">Email:</Badge> <Badge color="secondary">{userInfo.email}</Badge></h3> : null}
-						{!loading ? <h3 className={ style.info }><Badge color="danger">Descrição:</Badge> <Badge color="secondary">{userInfo.description}</Badge></h3> : null}
+						<div id={ style.divDescription }>
+							{!loading ? <h3 className={ style.info } id={ style.h3Descricao }><Badge color="danger">Descrição:</Badge> {userInfo.description}</h3> : null}
+						</div>
 						<div id={ style.divButton }>
-							{!loading ? <Link to="/profile/edit"><Button color="danger">Editar perfil</Button></Link> : null}
+							{!loading ? <Link to="/profile/edit"><Button id={ style.button } color="danger">Editar perfil</Button></Link> : null}
 						</div>
 					</div>
 					</div>

@@ -30,7 +30,7 @@ class App extends React.Component {
           render={ (props) => (
             <>
               <Header { ...props } />
-              <ProfileEdit />
+              <ProfileEdit {...props} />
             </>
           ) }
         />
@@ -65,7 +65,7 @@ class App extends React.Component {
           ) }
         />
 
-        <Route exact path="/loading" render={ () => <Loading /> } />
+        <Route exact path="/loading" render={ (props) => <Loading {...props} /> } />
         <Route exact path="/"><Login /></Route>
         <Route exact path="*"><NotFound /></Route>
       </Switch>
