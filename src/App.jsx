@@ -65,7 +65,7 @@ class App extends React.Component {
           ) }
         />
 
-        <Route exact path="/loading" render={ (props) => <Loading {...props} /> } />
+        <Route exact path="/loading" render={ () => <Loading /> } />
         <Route exact path="/"><Login /></Route>
         <Route exact path="*"><NotFound /></Route>
       </Switch>

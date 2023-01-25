@@ -1,7 +1,10 @@
 // import { Button } from 'bootstrap';
 import { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';
 import { getUser, updateUser } from '../services/userAPI';
+import style from '../style/ProfileEdit.module.css';
+import Loading from './Loading';
+import { Label, Input, FormFeedback, FormText, FormGroup, Spinner } from 'reactstrap';
 
 export default class ProfileEdit extends Component {
   state = {
@@ -67,42 +70,57 @@ export default class ProfileEdit extends Component {
   render() {
     const { loading, name, email, description, image, habilit, redirect } = this.state;
     return (
-      <main data-testid="page-profile-edit">
-        <h1>ProfileEdit</h1>
-        {loading ? <h1>Carregando...</h1> : <input
-          data-testid="edit-input-name"
-          value={ name }
-          name="name"
-          onChange={ this.attText }
-        />}
-        {loading ? '' : <input
-          data-testid="edit-input-email"
-          value={ email }
-          name="email"
-          onChange={ this.attText }
-        />}
-        {loading ? '' : <input
-          data-testid="edit-input-description"
-          value={ description }
-          name="description"
-          onChange={ this.attText }
-        />}
-        {loading ? '' : <input
-          data-testid="edit-input-image"
-          value={ image }
-          name="image"
-          onChange={ this.attText }
-        />}
-				{loading ? null
-				 : <button
-				 data-testid="edit-button-save"
-				 disabled={ habilit }
-				 onClick={ this.savedButton }
-				 type="submit"
-			 >
-				 Salvar
-			 </button>}
-        {redirect ? <Redirect to="/loading" /> : ''}
+      <main data-testid="page-profile-edit" id={ style.main }>
+				<div id={ style.divMain }>
+					<h1>ProfileEdit</h1>
+					<div id={ style.f }>
+						<img src={ image } alt={ name } />
+						{loading ? <Spinner color="danger" /> : <FormGroup id={ style.formGroup }>
+							<Label for="exampleEmail">
+								Nome
+							</Label>
+							<Input name="name" valid={ name.length > 0 } invalid={ !name.length > 0 } value={ name } onChange={ this.attText }/>
+							<FormFeedback valid={ name.length > 0 }>
+								{name.length > 0 ? 'Nome Válido' : 'Nome Inválido'}
+							</FormFeedback>
+							<FormText >
+							</FormText>
+						</FormGroup>}
+						{loading ? null : <FormGroup id={ style.formGroup }>
+							<Label for="exampleEmail">
+								Email
+							</Label>
+							<Input name="email" valid={ email.length > 0 && email.includes('@')} invalid={ !email.length > 0 || !email.includes('@')} value={ email } onChange={ this.attText }/>
+							<FormFeedback valid={ email.length > 0 && email.includes('@') }>
+								{email.length > 0 && email.includes('@') ? 'Email Válido' : 'Email Inválido'}
+							</FormFeedback>
+							<FormText >
+							</FormText>
+						</FormGroup>}
+						{loading ? null : <textarea
+							data-testid="edit-input-description"
+							value={ description }
+							name="description"
+							onChange={ this.attText }
+						/>}
+						{loading ? null : <input
+							data-testid="edit-input-image"
+							value={ image }
+							name="image"
+							onChange={ this.attText }
+						/>}
+						{loading ? null
+						: <button
+						data-testid="edit-button-save"
+						disabled={ habilit }
+						onClick={ this.savedButton }
+						type="submit"
+					  >
+						  Salvar
+					  </button>}
+					{redirect ? <Loading from='teste' /> : null}
+				</div>
+			</div>
       </main>
     );
   }

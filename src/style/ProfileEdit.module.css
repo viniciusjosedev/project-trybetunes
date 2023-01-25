@@ -1,0 +1,32 @@
+#main {
+	background-color: red;
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#divMain {
+	background-color: aqua;
+	display: flex;
+	flex-direction: column;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	justify-content: center;
+	align-items: center;
+}
+
+#formGroup {
+	/* background-color: red; */
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+#exampleText {
+	resize: none;
+}
+
+#teste {
+	resize: horizontal;
+}
