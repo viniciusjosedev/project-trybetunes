@@ -9,6 +9,7 @@ import ProfileEdit from './pages/ProfileEdit';
 import Search from './pages/Search';
 import Loading from './pages/Loading';
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 class App extends React.Component {
   render() {
@@ -21,6 +22,7 @@ class App extends React.Component {
             <>
               <Header { ...props } />
               <Album { ...props } />
+							<Footer />
             </>
           ) }
         />
@@ -29,8 +31,8 @@ class App extends React.Component {
           path="/profile/edit"
           render={ (props) => (
             <>
-              <Header { ...props } />
               <ProfileEdit {...props} />
+							<Footer />
             </>
           ) }
         />
@@ -41,6 +43,7 @@ class App extends React.Component {
             <>
               <Header { ...props } />
               <Profile />
+							<Footer />
             </>
           ) }
         />
@@ -51,6 +54,7 @@ class App extends React.Component {
             <>
               <Header { ...props } />
               <Favorites />
+							<Footer />
             </>
           ) }
         />
@@ -61,6 +65,7 @@ class App extends React.Component {
             <>
               <Header { ...props } />
               <Search />
+							<Footer />
             </>
           ) }
         />

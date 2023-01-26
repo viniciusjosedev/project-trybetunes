@@ -22,7 +22,7 @@ export default class Album extends Component {
 
   render() {
     const { albumInfo, trackInfo } = this.state;
-    console.log(albumInfo);
+    // console.log(albumInfo);
     return (
       <main data-testid="page-album" id={ style.main }>
 				<div id={ style.divMain }>

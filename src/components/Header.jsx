@@ -9,48 +9,55 @@ export default class Header extends Component {
   state = {
     user: undefined,
     loading: true,
-    search: '#EFF2EF',
-    favorites: '#EFF2EF',
-    profile: '#EFF2EF',
+    search: undefined,
+    favorites: undefined,
+    profile: undefined,
   };
 
   async componentDidMount() {
-    const user = await getUser();
+		this.init();
+  }
+
+	init = async () => {
+		const user = await getUser();
     this.funcInitial();
     this.setState({
       user,
       loading: false,
     });
-  }
+	}
 
   funcInitial = () => {
     const { history } = this.props;
     const cor = history.location.pathname.slice(1, history.location.pathname.length);
     // console.log(cor);
     this.setState({
-      [cor]: '#B967D7',
+      [cor]: '#ffffff',
     });
   };
 
   funcDinamic = ({ target: { name } }) => {
     this.setState({
-      search: '#EFF2EF',
-      favorites: '#EFF2EF',
-      profile: '#EFF2EF',
+      search: undefined,
+      favorites: undefined,
+      profile: undefined,
     }, () => {
-      if (name === 'search') {
-      	this.setState({
-        	[name]: '#B967D7',
-      	});
-      } else if (name === 'favorites') {
-        this.setState({
-          [name]: '#CF6CCA',
-        });
-      } else {
-        this.setState({
-          [name]: '#E066B1',
-        });
-      }
+      // if (name === 'search') {
+      // 	this.setState({
+      //   	[name]: '#B967D7',
+      // 	});
+      // } else if (name === 'favorites') {
+      //   this.setState({
+      //     [name]: '#CF6CCA',
+      //   });
+      // } else {
+      //   this.setState({
+      //     [name]: '#E066B1',
+      //   });
+      // }
+			this.setState({
+				[name]: '#ffffff',
+			})
     });
   };
 
@@ -58,8 +65,9 @@ export default class Header extends Component {
     const { user: { name } = '', loading, search, favorites, profile, user } = this.state;
     const teste = 'link-to-favorite';
     return (
-      <header data-testid="header-component" id={ style.header }>
-        <div id={ style.divTitle }>
+      <header data-testid="header-component" id={ style.header } style={ { justifyContent: loading ? 'center' : 'space-between' } }>
+				{loading ? <Spinner id={ style.spinner } color="primary" /> : <>
+				<div id={ style.divTitle }>
           {
             !loading
               ? <div id={ style.divTitle2 }>
@@ -72,14 +80,13 @@ export default class Header extends Component {
               : null
           }
         </div>
-        {loading ? <Spinner id={ style.spinner } color="primary" /> : null}
         <div id={ style.divLink }>
           {!loading
             ? <Link
               className={ style.links }
               data-testid="link-to-search" to="/search"
               name="search"
-              style={ { backgroundColor: search, color: search !== '#EFF2EF' ? 'white' : '#DC3545' } }
+              style={ { color: search  ? search : '#DC3545' } }
               onClick={ this.funcDinamic }
             >
               Pesquisar
@@ -88,7 +95,7 @@ export default class Header extends Component {
             ? <Link
               data-testid={ teste }
               className={ style.links } to="/favorites"
-              style={ { backgroundColor: favorites, color: favorites !== '#EFF2EF' ? 'white' : '#DC3545' } }
+              style={ { color: favorites  ? favorites : '#DC3545' } }
               name="favorites"
               onClick={ this.funcDinamic }
             >
@@ -98,13 +105,14 @@ export default class Header extends Component {
             ? <Link
               className={ style.links }
               data-testid="link-to-profile" to="/profile"
-              style={ { backgroundColor: profile, color: profile !== '#EFF2EF' ? 'white' : '#DC3545' } }
+              style={ { color: profile  ? profile : '#DC3545' } }
               name="profile"
               onClick={ this.funcDinamic }
             >
               Perfil
             </Link> : null}
         </div>
+				</>}
       </header>
     );
   }

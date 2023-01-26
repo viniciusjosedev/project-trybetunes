@@ -55,7 +55,7 @@ export default class Search extends Component {
 
   render() {
     const { text, habilit, loading, user, artist, clicado } = this.state;
-    console.log(user);
+    // console.log(user);
     return (
       <main data-testid="page-search" id={ style.main }>
 				<div id={ style.divCard }>
