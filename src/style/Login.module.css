@@ -8,7 +8,7 @@
 	background-color: blue;
 } */
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 0px) {
 	#main {
 		position: absolute;
 		width: 100%;
@@ -82,7 +82,8 @@
 		top: 522px; */
 		background: rgba(255, 124, 204, 0.50);
 		border-radius: 30px;
-		color: #EE609C;
+		/* color: white; */
+		font-weight: bolder;
 		font-weight: 700;
 	}
 	

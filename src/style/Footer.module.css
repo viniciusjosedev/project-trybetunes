@@ -1,0 +1,18 @@
+#footer {
+	background-image: url('../style/images/038\ Star\ Wine.png');
+	background-color: #EE609C;
+	display: flex;
+	height: auto;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	flex-grow: 1;
+	background-repeat: no-repeat;
+}
+
+#h1Header {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+

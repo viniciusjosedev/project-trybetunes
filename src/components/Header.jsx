@@ -61,8 +61,9 @@ export default class Header extends Component {
     const { user: { name } = '', loading, search, favorites, profile, user } = this.state;
     const teste = 'link-to-favorite';
     return (
-      <header data-testid="header-component" id={ style.header }>
-        <div id={ style.divTitle }>
+      <header data-testid="header-component" id={ style.header } style={ { justifyContent: loading ? 'center' : 'space-between' } }>
+				{loading ? <Spinner id={ style.spinner } color="primary" /> : <>
+				<div id={ style.divTitle }>
           {
             !loading
               ? <div id={ style.divTitle2 }>
@@ -75,7 +76,6 @@ export default class Header extends Component {
               : null
           }
         </div>
-        {loading ? <Spinner id={ style.spinner } color="primary" /> : null}
         <div id={ style.divLink }>
           {!loading
             ? <Link
@@ -108,6 +108,8 @@ export default class Header extends Component {
               Perfil
             </Link> : null}
         </div>
+				</>}
+        
       </header>
     );
   }

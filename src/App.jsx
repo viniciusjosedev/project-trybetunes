@@ -9,6 +9,7 @@ import ProfileEdit from './pages/ProfileEdit';
 import Search from './pages/Search';
 import Loading from './pages/Loading';
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 class App extends React.Component {
   render() {
@@ -21,6 +22,7 @@ class App extends React.Component {
             <>
               <Header { ...props } />
               <Album { ...props } />
+							<Footer />
             </>
           ) }
         />
@@ -31,6 +33,7 @@ class App extends React.Component {
             <>
               <Header { ...props } />
               <ProfileEdit {...props} />
+							<Footer />
             </>
           ) }
         />
@@ -41,6 +44,7 @@ class App extends React.Component {
             <>
               <Header { ...props } />
               <Profile />
+							<Footer />
             </>
           ) }
         />
@@ -51,6 +55,7 @@ class App extends React.Component {
             <>
               <Header { ...props } />
               <Favorites />
+							<Footer />
             </>
           ) }
         />
@@ -61,11 +66,12 @@ class App extends React.Component {
             <>
               <Header { ...props } />
               <Search />
+							<Footer />
             </>
           ) }
         />
 
-        <Route exact path="/loading" render={ () => <Loading /> } />
+        <Route exact path="/loading" render={ (props) => <Loading {...props} /> } />
         <Route exact path="/"><Login /></Route>
         <Route exact path="*"><NotFound /></Route>
       </Switch>

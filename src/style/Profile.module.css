@@ -3,7 +3,8 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	width: 100%;
+	/* width: 100%; */
+	/* flex-grow: 1; */
 }
 
 #divMain {
@@ -58,6 +59,7 @@
 	margin-top: 10px;
 	margin-bottom: 40px;
 	width: 100px;
+	height: 100px;
 	border: 2px solid #DC3545;
 	border-radius: 50px;
 }
