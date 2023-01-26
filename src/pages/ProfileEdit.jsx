@@ -121,7 +121,7 @@ export default class ProfileEdit extends Component {
 								onChange={ this.attText }
 							/>}
 					</div>
-					{redirect ? window.location.assign('http://localhost:3000/profile') : null}
+					{redirect ? window.location.assign('http://sexto-projeto.surge.sh/profile') : null}
 				</div>
 				{loading ? null
 					: <Button
