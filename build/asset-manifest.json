@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.52a0ce7c.css",
+    "main.js": "/static/js/main.d21f41a6.js",
+    "static/media/038 Star Wine.png": "/static/media/038 Star Wine.7b28ae5bc70a2e4c0112.png",
+    "index.html": "/index.html",
+    "main.52a0ce7c.css.map": "/static/css/main.52a0ce7c.css.map",
+    "main.d21f41a6.js.map": "/static/js/main.d21f41a6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.52a0ce7c.css",
+    "static/js/main.d21f41a6.js"
+  ]
+}
