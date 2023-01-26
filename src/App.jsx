@@ -31,7 +31,6 @@ class App extends React.Component {
           path="/profile/edit"
           render={ (props) => (
             <>
-              <Header { ...props } />
               <ProfileEdit {...props} />
 							<Footer />
             </>

@@ -15,13 +15,17 @@ export default class Header extends Component {
   };
 
   async componentDidMount() {
-    const user = await getUser();
+		this.init();
+  }
+
+	init = async () => {
+		const user = await getUser();
     this.funcInitial();
     this.setState({
       user,
       loading: false,
     });
-  }
+	}
 
   funcInitial = () => {
     const { history } = this.props;
@@ -109,7 +113,6 @@ export default class Header extends Component {
             </Link> : null}
         </div>
 				</>}
-        
       </header>
     );
   }

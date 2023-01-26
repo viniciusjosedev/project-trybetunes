@@ -19,11 +19,12 @@ export default class Loading extends Component {
 
   render() {
     const { loading } = this.state;
+		const { from } = this.props;
     return (
       <div id={ style.div }>
         {/* <h1 id={ style.h1 }>Carregando...</h1> */}
         <Spinner color="danger" id={ style.spinner } />
-        {!loading ? <Redirect to="/search" /> : null}
+        {!loading ? <Redirect to={ from ? '/profile' : '/search' } /> : null}
       </div>
     );
   }

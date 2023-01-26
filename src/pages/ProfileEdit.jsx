@@ -3,7 +3,7 @@ import { getUser, updateUser } from '../services/userAPI';
 import style from '../style/ProfileEdit.module.css';
 import Loading from './Loading';
 import { Label, Input, FormFeedback, FormText, FormGroup, Spinner, Button } from 'reactstrap';
-import { Redirect } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';
 
 export default class ProfileEdit extends Component {
   state = {
@@ -67,7 +67,7 @@ export default class ProfileEdit extends Component {
   };
 
   render() {
-    const { loading, name, email, description, image, habilit, redirect, history } = this.state;
+    const { loading, name, email, description, image, habilit, redirect } = this.state;
     return (
       <main data-testid="page-profile-edit" id={ style.main }>
 				<div id={ style.divMain }>
@@ -118,10 +118,10 @@ export default class ProfileEdit extends Component {
 								data-testid="edit-input-description"
 								value={ description }
 								name="description"
-								onChange={ this.attText }
+								onChange={ this.attText }	
 							/>}
 					</div>
-					{redirect ? window.location.assign('http://sexto-projeto.surge.sh/profile') : null}
+					{redirect ? <Loading from='profileEdit'/> : null}
 				</div>
 				{loading ? null
 					: <Button
