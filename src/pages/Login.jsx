@@ -3,7 +3,7 @@ import { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, FormGroup } from 'reactstrap';
 import { Redirect } from 'react-router-dom';
-import { createUser } from '../services/userAPI';
+import { createUser, getUser } from '../services/userAPI';
 import styles from '../style/Login.module.css';
 // import img from '../style/images/icons8-ellipsis-100.png';
 
@@ -15,8 +15,15 @@ export default class Login extends Component {
     color: ['#b953b5b9', '#7c137b'],
   };
 
-  funcAtt = (event) => {
-    const entrada = event.target.value;
+	async componentDidMount() {
+		const { name } = await getUser();
+		if (name)	this.setState({
+			text: name,
+		}, () => this.funcAtt({ target: { value: name } }))
+	}
+
+  funcAtt = ({ target: { value } }) => {
+    const entrada = value;
     const numberTextMin = 3;
     this.setState({
       text: entrada,
@@ -34,11 +41,18 @@ export default class Login extends Component {
     }
   };
 
-  funcaoClick = (text) => {
-    createUser({ name: text });
-    this.setState({
-      loading: true,
-    });
+  funcaoClick = async (text) => {
+		const user = await getUser();
+		if (user.name === text) {
+			this.setState({
+				loading: true,
+			});
+		} else {
+			createUser({ name: text });
+			this.setState({
+				loading: true,
+			});
+		}
   };
 
   render() {
