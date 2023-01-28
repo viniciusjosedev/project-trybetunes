@@ -14,6 +14,7 @@ export default class ProfileEdit extends Component {
     image: undefined,
     habilit: true,
     redirect: false,
+		verificImg: true,
   };
 
   async componentDidMount() {
@@ -27,20 +28,35 @@ export default class ProfileEdit extends Component {
     }, () => this.funcVerific());
   }
 
+	funcComplementVerific = () => {
+		const { name, email, description, image, verificImg } = this.state;
+		const verific = name.length > 0
+		&& email.length > 0 && description.length > 0 && image.length > 0
+		&& email.includes('@') && verificImg;
+		if (verific) {
+			this.setState({
+				habilit: false,
+			});
+		} else {
+			this.setState({
+				habilit: true,
+			});
+		}
+	}
+
   funcVerific = () => {
-    const { name, email, description, image } = this.state;
-    const verific = name.length > 0
-    && email.length > 0 && description.length > 0 && image.length > 0
-    && email.includes('@');
-    if (verific) {
-      this.setState({
-        habilit: false,
-      });
-    } else {
-      this.setState({
-        habilit: true,
-      });
-    }
+		const { image } = this.state;
+		const img = new Image()
+		img.src = image;
+		img.onload = () => {
+			this.setState({ 
+				verificImg: true 
+			}, () => this.funcComplementVerific())
+		}
+		img.onerror = () => {
+			this.setState({ 
+				verificImg: false 
+			}, () => this.funcComplementVerific())};
   };
 
   attText = ({ target }) => {
@@ -68,7 +84,7 @@ export default class ProfileEdit extends Component {
   };
 
   render() {
-    const { loading, name, email, description, image, habilit, redirect } = this.state;
+    const { loading, name, email, description, image, habilit, redirect, verificImg } = this.state;
     return (
       <main data-testid="page-profile-edit" id={ style.main }>
 				<div id={ style.divMain }>
@@ -81,9 +97,9 @@ export default class ProfileEdit extends Component {
 								<Label for="exampleEmail" className={ style.label }>
 									Insira uma URl de imagem
 								</Label>
-								<Input name="image" valid={ image.length > 0 } invalid={ !image.length > 0 } value={ image } onChange={ this.attText }/>
-								<FormFeedback valid={ image.length > 0 }>
-									{image.length > 0 ? 'imagem Válida' : 'imagem Inválida'}
+								<Input name="image" valid={ verificImg } invalid={ !verificImg } value={ image } onChange={ this.attText }/>
+								<FormFeedback valid={ verificImg }>
+									{verificImg ? 'imagem Válida' : 'imagem Inválida'}
 								</FormFeedback>
 								<FormText >
 								</FormText>

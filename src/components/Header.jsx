@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Badge, Spinner } from 'reactstrap';
+import { Badge, Spinner } from 'reactstrap'; 
 import { getUser } from '../services/userAPI';
 import style from '../style/Header.module.css';
 import image from '../style/images/profile-50.png';
@@ -73,8 +73,8 @@ export default class Header extends Component {
               ? <div id={ style.divTitle2 }>
                 <h1 id={ style.title }>Trybe<Badge color="danger" id={ style.badge }>Tunes</Badge></h1>
                 <div id={ style.divProfile }>
-                  <img id={ style.img } src={ user.image.length > 0 ? user.image : image } alt="" />
-                  <h1 id={ style.profile } data-testid="header-user-name">{name}</h1>
+                  <Link to="/profile"><img id={ style.img } src={ user.image.length > 0 ? user.image : image } alt="" /></Link>
+                  <Link to="/profile" style={ { textDecoration: 'none', color: 'black', fontWeight: 'bolder' } }><h1 id={ style.profile } data-testid="header-user-name">{name}</h1></Link>
                 </div>
               </div>
               : null
