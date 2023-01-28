@@ -62,7 +62,7 @@ export default class Search extends Component {
       <main data-testid="page-search" id={ style.main }>
 				<div id={ style.divCard }>
 					<h1 id={ style.h1Pesquisa }>Pesquisar</h1>
-					{loading ? <Spinner color="primary">Carregando</Spinner> : <FormGroup id={ style.formgFormTextroupId } onChange={ (event) => this.attText(event) } value={ text }>
+					{loading ? <Spinner color="danger">Carregando</Spinner> : <FormGroup id={ style.formgFormTextroupId } onChange={ (event) => this.attText(event) } value={ text }>
 						{/* <Label for="exampleEmail" id={ style.FormText }>
 							Encontre
 						</Label> */}
