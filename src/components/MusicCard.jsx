@@ -52,7 +52,7 @@ export default class MusicCard extends Component {
     const { loading, checked } = this.state;
     // console.log(trackInfo.previewUrl);
     return (
-      <div id={ style.divMusicCard }>
+      <div id={ style.divMusicCard } style={ { backgroundColor: loading ? 'black' : null } }>
         <h3 id={ style.h3 }>{!loading ? trackInfo.trackName : ''}</h3>
 				{!loading ? null : <Spinner color="danger" />}
 				<div id={ style.div }>

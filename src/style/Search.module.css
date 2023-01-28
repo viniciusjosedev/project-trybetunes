@@ -1,5 +1,5 @@
 #main {
-	background-color: #B666D9;
+	background-color: #222222;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -8,7 +8,7 @@
 }
 
 #divCard {
-	background-color: white;
+	background-color: black;
 	/* background: url('images/038\ Star\ Wine.png'); */
 	display: flex;
 	flex-direction: column;
@@ -26,7 +26,7 @@
 	margin-top: 20px;
 	margin-bottom: 40px;
 	font-weight: bolder;
-	color: #B765D8;
+	color: #DC3545;
 }
 
 #formgFormTextroupId {
@@ -44,7 +44,7 @@
 }
 
 #button {
-	background-color: #B765D8;
+	background-color: #DC3545;
 	width: 110px;
 	height: 50px;
 	font-size: 18px;
@@ -62,14 +62,14 @@
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	border: 5px solid #B765D8;
+	border: 5px solid #DC3545;
 	margin-left: 10px;
 	margin-right: 10px;
 	box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.5);
 }
 
 #divMusic:hover {
-	background-color: #b765d8d3;
+	background-color: rgb(240, 239, 239);
   color: white;
 }
 

@@ -26,11 +26,13 @@ export default class Search extends Component {
 					user,
 					loading: false,
 					clicado: false,
+					habilit: true,
 				})
 			} else {
 				this.setState({
 					loading: false,
 					clicado: true,
+					habilit: true,
 				})
 			}
     });
@@ -80,7 +82,7 @@ export default class Search extends Component {
 					>
 						{loading ? '' : 'Pesquisar'}
 					</Button>
-					<h1>{user ? `Resultado de álbuns de: ${artist}` : ''}</h1>
+					<h1 style={ { color: 'white', fontWeight: 'bolder' } }>{user ? `Resultado de álbuns de: ${artist}` : ''}</h1>
 					<div id={ style.divMusics }>
 						{user ? user.map((elemento) => (
 							<Link className={ style.link } to={ `/album/${elemento.collectionId}` } key={ elemento.collectionId }>
@@ -95,7 +97,7 @@ export default class Search extends Component {
 										key={ elemento.collectionId }
 										to={ `/album/${elemento.collectionId}` }
 									>
-										<h3>{elemento.collectionName}</h3>
+										<h3 style={ { color: '#DC3545', fontWeight: 'bolder' } }>{elemento.collectionName}</h3>
 									</Link>
 								</div>
 							</Link>

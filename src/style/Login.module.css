@@ -16,7 +16,7 @@
 		left: 0px;
 		top: 0px;
 		/* background-color: blueviolet; */
-		background: url('images/038\ Star\ Wine.png');
+		background-color: #222222;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -30,21 +30,13 @@
 		height: 54.54%;
 		/* left: 478px;
 		top: 245px; */
-		background: #ffffff;
+		background: #000000;
 		border-radius: 50px;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
 		box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.5);
-	}
-	
-	#img {
-		margin-left: -80%;
-		margin-top: -8%;
-		margin-bottom: -3%;
-		width: 15%;
-		height: 27%;
 	}
 	
 	.h1-acesso {
@@ -72,6 +64,8 @@
 		border-radius: 30%;
 		color: #EE609C;
 		font-weight: bolder;
+		/* padding: 10px; */
+		/* box-sizing:content-box; */
 	}
 	
 	#input-name {
@@ -82,9 +76,12 @@
 		top: 522px; */
 		background: rgba(255, 124, 204, 0.50);
 		border-radius: 30px;
-		/* color: white; */
+		color: white;
 		font-weight: bolder;
 		font-weight: 700;
+		/* padding: 2px;	 */
+		/* box-sizing:content-box; */
+		box-shadow: 3px 3px 0px rgba(255, 124, 204, 0.5);	
 	}
 	
 	#button {
@@ -102,5 +99,9 @@
 		font-size: 180%;
 	}
 	
+	#spinner {
+		width: 70.08px;
+		height: 70.08px;
+	}
 }
 

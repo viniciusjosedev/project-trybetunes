@@ -1,5 +1,5 @@
 #main {
-	background-color: #DF66B1;
+	background-color: #222222;
 	display: flex;
 	width: 100%;
 	flex-direction: column;
@@ -9,7 +9,7 @@
 }
 
 #divMain {
-	background-color: white;
+	background-color: black;
 	display: flex;
 	flex-direction: column;
 	margin-top: 20px;
