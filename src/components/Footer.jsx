@@ -5,8 +5,8 @@ export default class Footer extends Component {
   render() {
 		return (
 			<footer id={ style.footer }>
-				<h1 id={ style.h1Header }>Desenvolvido com React.js</h1>
-				<h1>2023 © Vinicius José</h1>
+				<h1 id={ style.h1Desenvolvido }>Desenvolvido com React.js</h1>
+				<h1 id={ style.h1Name }>2023 © Vinicius José</h1>
 			</footer>
     )
 	}

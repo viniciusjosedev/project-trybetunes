@@ -61,6 +61,7 @@ export default class ProfileEdit extends Component {
     this.setState({
       loading: false,
       redirect: true,
+			habilit: true,
     });
     // history.push('/profile');
 		// // history.goBack()

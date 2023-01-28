@@ -9,9 +9,9 @@ export default class Header extends Component {
   state = {
     user: undefined,
     loading: true,
-    search: undefined,
-    favorites: undefined,
-    profile: undefined,
+    search: 'white',
+    favorites: 'white',
+    profile: 'white',
   };
 
   async componentDidMount() {
@@ -32,15 +32,15 @@ export default class Header extends Component {
     const cor = history.location.pathname.slice(1, history.location.pathname.length);
     // console.log(cor);
     this.setState({
-      [cor]: '#ffffff',
+      [cor]: '#DC3545',
     });
   };
 
   funcDinamic = ({ target: { name } }) => {
     this.setState({
-      search: undefined,
-      favorites: undefined,
-      profile: undefined,
+      search: 'white',
+      favorites: 'white',
+      profile: 'white',
     }, () => {
       // if (name === 'search') {
       // 	this.setState({
@@ -56,7 +56,7 @@ export default class Header extends Component {
       //   });
       // }
 			this.setState({
-				[name]: '#ffffff',
+				[name]: '#DC3545',
 			})
     });
   };
@@ -66,12 +66,12 @@ export default class Header extends Component {
     const teste = 'link-to-favorite';
     return (
       <header data-testid="header-component" id={ style.header } style={ { justifyContent: loading ? 'center' : 'space-between' } }>
-				{loading ? <Spinner id={ style.spinner } color="primary" /> : <>
+				{loading ? <Spinner id={ style.spinner } color="danger" /> : <>
 				<div id={ style.divTitle }>
           {
             !loading
               ? <div id={ style.divTitle2 }>
-                <h1 id={ style.title }>Trybe<Badge color="danger">Tunes</Badge></h1>
+                <h1 id={ style.title }>Trybe<Badge color="danger" id={ style.badge }>Tunes</Badge></h1>
                 <div id={ style.divProfile }>
                   <img id={ style.img } src={ user.image.length > 0 ? user.image : image } alt="" />
                   <h1 id={ style.profile } data-testid="header-user-name">{name}</h1>
@@ -86,7 +86,7 @@ export default class Header extends Component {
               className={ style.links }
               data-testid="link-to-search" to="/search"
               name="search"
-              style={ { color: search  ? search : '#DC3545' } }
+              style={ { color: search  } }
               onClick={ this.funcDinamic }
             >
               Pesquisar

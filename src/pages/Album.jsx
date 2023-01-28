@@ -26,10 +26,10 @@ export default class Album extends Component {
     return (
       <main data-testid="page-album" id={ style.main }>
 				<div id={ style.divMain }>
-					<h3 id={ style.headerAlbum }>Album</h3>
+					<h1 id={ style.headerAlbum }>Album</h1>
 					<img id={ style.img } src={ albumInfo ? albumInfo.artworkUrl100 : null } alt={ albumInfo ? albumInfo.artistId : null } />
 					<h3 className={ style.h3Album } data-testid="artist-name">{albumInfo ? albumInfo.artistName : ''}</h3>
-					<h3 className={ style.h3Album } data-testid="album-name">{albumInfo ? albumInfo.collectionName : ''}</h3>
+					<h3 className={ style.h3Album } id={ style.h3Id } data-testid="album-name">{albumInfo ? albumInfo.collectionName : ''}</h3>
 					<div id={ style.divTrackInfo }>
 						{trackInfo ? trackInfo.map((elemento) => (
 							<MusicCard key={ elemento.trackId } trackInfo={ elemento } />

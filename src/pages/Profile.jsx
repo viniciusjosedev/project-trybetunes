@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Badge, Button, Spinner } from 'reactstrap';
+import { Button, Spinner } from 'reactstrap';
 import { getUser } from '../services/userAPI';
 import style from '../style/Profile.module.css';
 import imgDefault from '../style/images/profile-100.png';
@@ -9,6 +9,7 @@ export default class Profile extends Component {
   state = {
     loading: true,
     userInfo: undefined,
+		redirect: undefined,
   };
 
   async componentDidMount() {
@@ -18,6 +19,12 @@ export default class Profile extends Component {
       loading: false,
     });
   }
+
+  exit = () => {
+    const { history } = this.props;
+		localStorage.setItem('login', JSON.stringify(false));
+		history.push('/')
+	}
 
   render() {
     const { loading, userInfo } = this.state;
@@ -35,16 +42,18 @@ export default class Profile extends Component {
 							/>
 								: <Spinner color="danger" />}
 						</div>
-						{!loading ? <h3 className={ style.info }>Nome: {userInfo.name}</h3> : null}
-						{!loading ? <h3 className={ style.info }>Email: {userInfo.email}</h3> : null}
+						{!loading ? <h3 className={ style.info }>Nome: {userInfo.name.length > 0 ? userInfo.name : '?'}</h3> : null}
+						{!loading ? <h3 className={ style.info }>Email: {userInfo.email.length > 0 ? userInfo.email : '?'}</h3> : null}
 						<div id={ style.divDescription }>
-							{!loading ? <h3 className={ style.info }>Descrição: {userInfo.description}</h3> : null}
+							{!loading ? <h3 className={ style.info }>Descrição: {userInfo.description.length > 0 ? userInfo.description : '?'}</h3> : null}
 						</div>
 						<div id={ style.divButton }>
 							{!loading ? <Link to="/profile/edit"><Button id={ style.button } color="danger">Editar perfil</Button></Link> : null}
+							{!loading ? <Button onClick={ () => this.exit() } id={ style.button } color="danger">Sair</Button> : null}
 						</div>
 					</div>
-					</div>
+					{}
+				</div>
       </main>
     );
   }

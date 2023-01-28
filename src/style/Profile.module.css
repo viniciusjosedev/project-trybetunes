@@ -1,14 +1,15 @@
 #main {
-	background-color: #DF66B1;
+	background-color: #222222;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 	/* width: 100%; */
-	/* flex-grow: 1; */
+	flex-grow: 1;
 }
 
 #divMain {
-	background-color: white;
+	background-color: black;
 	margin-top: 20px;
 	display: flex;
 	flex-direction: column;
@@ -27,11 +28,11 @@
 	margin-top: 20px;
 	margin-bottom: 20px;
 	font-weight: bolder;
-	color: #DC355F;
+	color: #DC3545;
 }
 
 #divInfo {
-	background-color: #B766D9;
+	background-color: #222222;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -67,6 +68,8 @@
 .info {
 	margin-left: 20px;
 	margin-right: 20px;
+	color: white;
+	font-weight: bolder;
 }
 
 #divDescription {
@@ -80,8 +83,9 @@
 	/* background-color: red; */
 	width: 100%;
 	display: flex;
-	justify-content: center;
+	justify-content: space-around;
 	margin-top: 20px;
+	margin-right: 200px;
 }
 
 #button {
