@@ -40,5 +40,5 @@
 ### Projeto realizado em conjunto com a empresa de tecnologia Trybe, que foi a responsável pela criação dos testes com o RTL (react test library), fazendo-se assim, toda a estrutura necessária para um bom desenvolvimento orientado a testes (TDD).
 ### Além dos testes, todos os arquivos criados no diretorio src/services são de autória da Trybe, assim como todos os scripts do package.json, com excessão do "error': 'npm run lint -- --fix" (linha 27).
 ### Todos os demais arquivos e diretórios do projeto são de autoria minha, isso inclui: src/components, src/pages, src/style. Os demais arquivos soltos na pasta src/ também são de minha autoria, isso inclui: App.jsx, index.js.
-#### OBS 1: O arquivo setupTests.js já vem como default com o React na instalação feita (npx create-react-app .).
-#### OBS 2: Todos os testes de com o RTL foram devidamente apagados, esta ação envolve proteger a autoria de código, respeitando assim as normas e regras internas da empresa de tecnologia Trybe.
+##### OBS 1: O arquivo setupTests.js já vem como default com o React na instalação feita (npx create-react-app .).
+##### OBS 2: Todos os testes de com o RTL foram devidamente apagados, esta ação envolve proteger a autoria de código, respeitando assim as normas e regras internas da empresa de tecnologia Trybe.
