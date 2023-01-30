@@ -8,13 +8,13 @@
 ## Bradges
 
 <p align='left'>
-<img src='https://img.shields.io/badge/STATUS-EM%20DESENVOLVIMENTO-success' width='250px'></img>
+<img src='https://img.shields.io/badge/STATUS-FINALIZADO-Green' width='250px'></img>
 </p>
 
 ## Descrição do projeto
 
 ### Projeto realizado mediante a necessidade da prática em conceitos inicialmente abordados de forma teórica.
-### Neste projeto em específico, pratiquei a construção de testes assíncronos com o jest.
+### Neste projeto em específico, pratiquei ainda mais a forma de se desenvolver uma aplicação em React. Usando componentes de classes, 
 ### Além disso,pratiquei requisições para API's, junto com isso, veio a necessidade de tratar essas requisições como uma Promise e então encaminhar os resultados para a tela do usuário.
 ### API's usadas: 
 
@@ -36,4 +36,4 @@
 ## Pessoas Desenvolvedoras do Projeto.
 ### Projeto realizado em conjunto com a empresa de tecnologia trybe, que foi a reponsável por fazer toda a estrutura dos arquivos do projeto, incluindo a estrutura básica da identação e estilização da página.
 ### Deixando assim, um ambiente saudável para que eu pudeste desenvolver todos os testes assíncronos das funções fetchProduct.js e fetchProductsList.js, além de também desenvolver as mesmas.
-### Partes das criações das funcionalidadee de adicionar e excluir produtos também são de minha responsabilidade juntamente com toda a estrutura buscar, tratar e printar os dados de todas as API's do projeto.
+### Partes das criações das funcionalidadee de adicionar e excluir produtos também são de minha responsabilidade juntamente com toda a estrutura buscar, tratar e printar os dados de todas as API's do projeto. 
