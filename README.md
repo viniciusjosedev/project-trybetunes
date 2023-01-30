@@ -1,7 +1,7 @@
-<h1 align='center' id='Título-e-Imagem-de-capa'>:money_with_wings: Shopping Cart :money_with_wings: </h1>
+<h1 align='center' id='Título-e-Imagem-de-capa'>:musical_note: TrybeTunes :musical_note: </h1>
 
 <p align='center'>
-<img src='./src/imgs/logo.png'></img>
+<img src='./src/style/images/TrybeTunes.png'></img>
 </p>
 
 
