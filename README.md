@@ -1,4 +1,4 @@
-<h1 align='center' id='Título-e-Imagem-de-capa'>:musical_note: TrybeTunes :musical_note: </h1>
+<h1 align='center' id='Título-e-Imagem-de-capa'> TrybeTunes</h1>
 
 <p align='center'>
 <img src='./src/style/images/TrybeTunes.png'></img>
