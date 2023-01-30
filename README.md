@@ -18,8 +18,8 @@
 ### Além disso, pratiquei requisições para API's, junto com isso, veio a necessidade de tratar essas requisições como uma Promise e então encaminhar os resultados para a tela do usuário.
 ### API('s) usada(s): 
 
-### :heavy_check_mark: - End-Point para albuns: https://itunes.apple.com/search?entity=album&term=${artistNameURL}&attribute=allArtistTerm;
-### :heavy_check_mark: - End-Point para músicas: https://itunes.apple.com/lookup?id=${id}&entity=song.
+### End-Point para albuns: https://itunes.apple.com/search?entity=album&term=${artistNameURL}&attribute=allArtistTerm - :heavy_check_mark:
+### End-Point para músicas: https://itunes.apple.com/lookup?id=${id}&entity=song - :heavy_check_mark:
 
 
 ## :hammer: Funcionalidades :hammer:
