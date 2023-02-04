@@ -11,6 +11,10 @@
 <img src='https://img.shields.io/badge/STATUS-FINALIZADO-Green' width='250px'></img>
 </p>
 
+<h2>Deploy: https://sexto-projeto.surge.sh</h2>
+
+</br>
+
 ## Descrição do projeto
 
 ### Projeto realizado mediante a necessidade da prática em conceitos inicialmente abordados de forma teórica.
